@@ -1,0 +1,28 @@
+function about() {
+  var alert = COSAlertWindow.new();
+  alert.setMessageText("About SVG namespacing");
+  alert.setInformativeText("Rationale: http://stackoverflow.com/questions/35946064/how-to-handle-sketch-exported-svg-with-ids");
+  alert.addButtonWithTitle('Close');
+
+  var response = alert.runModal();
+}
+
+function onExportSlices(context) {
+  var exports = context.actionContext.exports;
+  for (var i = 0; i < exports.count(); i++) {
+    var currentExport = exports.objectAtIndex(i);
+    if (currentExport.request.format() == 'svg') {
+      var name = currentExport.request.name();
+      var path = currentExport.path;
+      log(path + ' is namespaced by ' + name);
+      var svgString = "" + NSString.stringWithContentsOfFile_encoding_error(path, NSUTF8StringEncoding, nil);
+      var newSvgString = (
+        svgString
+        .replace(new RegExp('id="', 'g'), 'id="' + name + '--')
+        .replace(new RegExp('url\\(#', 'g'), 'url(#' + name + '--')
+        .replace(new RegExp('xlink:href="#', 'g'), 'xlink:href="#' + name + '--')
+      );
+      NSString.stringWithString(newSvgString).writeToFile_atomically_encoding_error(path, true, NSUTF8StringEncoding, nil);
+    }
+  }
+}

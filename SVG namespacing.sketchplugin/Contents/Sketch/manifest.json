@@ -1,0 +1,23 @@
+{
+  "name": "SVG namespacing",
+  "description": "BEM-style svg namespacing in Sketch 3.8",
+  "author": "Kim Seungha",
+  "authorEmail": "shkim@knowre.com",
+  "version": "0.0.1",
+  "identifier": "com.knowre.sketch.svg-namespacing",
+  "homepage": "https:/github.com/KnowreDev/svg-namespacing",
+  "compatibleVersion": 3.8,
+  "commands": [
+    {
+      "identifier": "svg-namespacing",
+      "script": "plugin.cocoascript",
+      "name": "About SVG namespacing",
+      "handlers": {
+        "run": "about",
+        "actions": {
+          "ExportSlices": "onExportSlices"
+        }
+      }
+    }
+  ]
+}
