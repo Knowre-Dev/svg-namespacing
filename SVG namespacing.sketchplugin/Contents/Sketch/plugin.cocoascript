@@ -1,9 +1,8 @@
 function about() {
   var alert = COSAlertWindow.new();
   alert.setMessageText("About SVG namespacing");
-  alert.setInformativeText("Rationale: http://stackoverflow.com/questions/35946064/how-to-handle-sketch-exported-svg-with-ids");
+  alert.setInformativeText("BEM-style svg namespacing in Sketch 3.8\n\nhttps://github.com/Knowre-Dev/svg-namespacing");
   alert.addButtonWithTitle('Close');
-
   var response = alert.runModal();
 }
 

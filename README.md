@@ -11,6 +11,7 @@ This plugin requires Sketch 3.8.
 
 # Install
 
-1. [Download this zip file](https://github.com/KnowreDev/svg-namespacing/archive/master.zip) and extract it in any folder.
+1. [Go to releases page](https://github.com/Knowre-Dev/svg-namespacing/releases/latest) and download `Source code (zip)` file.
+1. Extract it in any folder.
 1. Double click `SVG namespaceing.sketchplugin` in finder.
 1. Done! From now on, all svg files exported from slices are namespaced.
